@@ -1,9 +1,10 @@
 const mongoose = require("mongoose");
 const request = require("supertest");
 const app = require("../server");
-const { ID_NAME } = require("../constants/BOOKING");
+const { ID_NAME, RETRIEVE_NAME, CANCEL_NAME } = require("../constants/BOOKING");
 const { REMOVE_SUCCESS } = require("../messages/success");
 const { CORRECT_REQUEST } = require("./TESTING_CONSTANT");
+const { RETRIEVE_BOOKING, CANCEL_BOOKING } = require("../messages/guidelines");
 
 require("dotenv").config();
 
@@ -29,6 +30,8 @@ describe("Full Lifecycle", () => {
         expect(res.statusCode).toBe(200);
         expect(res.body.data[ID_NAME]).not.toBe("");
         bookingId = res.body.data[ID_NAME]
+        expect(res.body.data[RETRIEVE_NAME]).toBe(`${RETRIEVE_BOOKING}/${bookingId}`);
+        expect(res.body.data[CANCEL_NAME]).toBe(`${CANCEL_BOOKING}/${bookingId}`);
     });
     
     it("should return correct booking", async () => {

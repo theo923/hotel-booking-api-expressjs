@@ -1,6 +1,7 @@
 const { validNoOfPeople, validBookingDate } = require("../utils/validBookings");
-const { ID_NAME } = require("../constants/BOOKING");
+const { ID_NAME, RETRIEVE_NAME, CANCEL_NAME } = require("../constants/BOOKING");
 const { NO_OF_PEOPLE_ERROR, DATE_ERROR } = require("../messages/errors");
+const { RETRIEVE_BOOKING, CANCEL_BOOKING } = require("../messages/guidelines");
 const Booking = require("../models/BookingSchema");
 
 const handleRegister = () => async (req, res) => {
@@ -15,7 +16,9 @@ const handleRegister = () => async (req, res) => {
       res.status(200).json({
         status: 200,
         data: {
-          [ID_NAME]: booking.id
+          [ID_NAME]: booking.id,
+          [RETRIEVE_NAME]: `${RETRIEVE_BOOKING}/${booking.id}`,
+          [CANCEL_NAME]: `${CANCEL_BOOKING}/${booking.id}`
         },
       });
     } catch (err) {
