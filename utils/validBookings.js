@@ -1,7 +1,7 @@
 const { MAX_PEOPLE, MAX_BOOKING_DAYS } = require("../constants/booking");
 
-const validNoOfPeople = (noOfPeople) => noOfPeople > MAX_PEOPLE
-const validBookingDate = (In, Out) => {
+const checkNoOfPeople = (noOfPeople) => noOfPeople > MAX_PEOPLE
+const checkBookingDate = (In, Out) => {
     const checkIn = new Date(In)
     const checkOut = new Date(Out)
 
@@ -9,6 +9,6 @@ const validBookingDate = (In, Out) => {
 }
 
 module.exports = {
-    validNoOfPeople: validNoOfPeople,
-    validBookingDate: validBookingDate
+    checkNoOfPeople: checkNoOfPeople,
+    checkBookingDate: checkBookingDate
 }

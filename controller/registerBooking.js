@@ -1,4 +1,4 @@
-const { validNoOfPeople, validBookingDate } = require("../utils/validBookings");
+const { checkNoOfPeople, checkBookingDate } = require("../utils/validBookings");
 const { ID_NAME, RETRIEVE_NAME, CANCEL_NAME } = require("../constants/BOOKING");
 const { NO_OF_PEOPLE_ERROR, DATE_ERROR } = require("../messages/errors");
 const { RETRIEVE_BOOKING, CANCEL_BOOKING } = require("../messages/guidelines");
@@ -8,8 +8,8 @@ const handleRegister = () => async (req, res) => {
     try {
       const { noOfPeople, checkIn, checkOut } = req.body
 
-      if (validNoOfPeople(noOfPeople)) throw { message: NO_OF_PEOPLE_ERROR }
-      if (validBookingDate(checkIn, checkOut)) throw { message: DATE_ERROR }
+      if (checkNoOfPeople(noOfPeople)) throw { message: NO_OF_PEOPLE_ERROR }
+      if (checkBookingDate(checkIn, checkOut)) throw { message: DATE_ERROR }
 
       let booking = new Booking(req.body);
       booking = await booking.save();
