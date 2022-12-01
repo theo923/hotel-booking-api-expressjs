@@ -1,4 +1,4 @@
-const { MAX_PEOPLE, MAX_BOOKING_DAYS } = require("../constants/booking");
+const { MAX_PEOPLE, MAX_BOOKING_DAYS } = require("../constants/BOOKING");
 
 const checkNoOfPeople = (noOfPeople) => noOfPeople > MAX_PEOPLE
 const checkBookingDate = (In, Out) => {

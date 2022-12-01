@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const request = require("supertest");
 const app = require("../server");
-const { MAX_PEOPLE } = require("../constants/booking");
+const { MAX_PEOPLE } = require("../constants/BOOKING");
 const { NO_OF_PEOPLE_ERROR, DATE_ERROR, NO_BOOKING_ERROR } = require("../messages/errors");
 const { CORRECT_REQUEST } = require("./TESTING_CONSTANT");
 

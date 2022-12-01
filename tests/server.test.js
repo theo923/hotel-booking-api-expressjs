@@ -10,7 +10,7 @@ require("dotenv").config();
 
 beforeEach(async () => {
     await mongoose.connect(process.env.DATABASE_URI);
-  });
+});
 
 afterEach(async () => {
     await mongoose.connection.close();
