@@ -3,6 +3,8 @@ require('dotenv').config()
 //library
 const express = require('express')
 const cors = require('cors')
+const helmet = require('helmet')
+const logger = require("morgan");
 const mongoose = require("mongoose");
 
 //initialize controller
@@ -13,6 +15,8 @@ const remove = require("./controller/removeBooking");
 //initialize backend
 const app = express()
 
+app.use(logger('short'))
+app.use(helmet())
 app.use(cors());
 app.use(express.json())
 
